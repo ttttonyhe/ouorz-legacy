@@ -1,0 +1,43 @@
+.igem_2018_team_menu{
+    background-color: #ffffff;
+    border-left: 1px solid #4382f4;
+    display: block;
+    float: right;
+    margin-top: -13px;
+    height: 100vh;
+    max-width: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px;
+    position: fixed;
+    right: 0%;
+    text-align: left;
+    width: 15%;
+}
+
+.igem_2018_team_menu .menu_item{
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #4282f4;
+    clear: both;
+    color: #4282f4;
+    cursor: pointer;
+    float: left;
+    font-size: 120%;
+    font-weight: bold;
+    padding: 20px 0px 20px 5%;
+    width: 100%;
+    transition: all .2s;
+}
+
+.igem_2018_team_menu .menu_item.direct_link{
+    color:#4282f4;
+}
+
+.igem_2018_team_menu .menu_item:hover {
+	background-color: rgb(237, 237, 237);
+}
+
+.igem_2018_team_menu .submenu .submenu_item{
+    border-bottom: 1px solid rgba(66, 130, 244, 0.65);
+    color: #4282f4;
+}
