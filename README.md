@@ -2,9 +2,9 @@
 基于 King 主题修改的 WordPress 个人博客主题
 
 <br/>
-### 主题截图
-<br/>
-! [thumbnail] (https://i.loli.net/2019/02/06/5c5aeff08a585.png)
+
+### 主题截图  
+![thumbnail](https://i.loli.net/2019/02/06/5c5aeff08a585.png)
 
 <br/>
 
