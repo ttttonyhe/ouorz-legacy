@@ -3,7 +3,7 @@
 
 <br/>
 ### 主题截图
-![thumbnail](https://i.loli.net/2019/02/06/5c5aeff08a585.png)
+![https://i.loli.net/2019/02/06/5c5aeff08a585.png](thumbnail)
 
 <br/>
 
