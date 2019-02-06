@@ -4,7 +4,7 @@
 <br/>
 ### 主题截图
 <br/>
-![](https://i.loli.net/2019/02/06/5c5aeff08a585.png)
+! [thumbnail] (https://i.loli.net/2019/02/06/5c5aeff08a585.png)
 
 <br/>
 
