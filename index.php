@@ -33,7 +33,8 @@
         <div class="article-list-footer"> 
             <span class="article-list-date">{{ post.post_date }}</span>
             <span class="article-list-divider">-</span>
-            <span class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
+            <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
+            <span v-else class="article-list-minutes">0&nbsp;Views</span>
         </div>
     </li>
     
