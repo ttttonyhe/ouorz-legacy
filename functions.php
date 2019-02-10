@@ -170,4 +170,80 @@ function change_graphic_lib($array) {
 
 include (TEMPLATEPATH . '/code/code.php' );
 
+
+
+
+
+add_action( 'rest_api_init', 'wp_rest_insert_tag_links' );
+
+function wp_rest_insert_tag_links(){
+
+    register_rest_field( 'post',
+        'post_categories',
+        array(
+            'get_callback'    => 'wp_rest_get_categories_links',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'post',
+        'post_excerpt',
+        array(
+            'get_callback'    => 'wp_rest_get_plain_excerpt',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'post',
+        'post_date',
+        array(
+            'get_callback'    => 'wp_rest_get_normal_date',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'post', 
+        'post_metas', 
+        array(
+            'get_callback' => 'get_post_meta_for_api',
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
+}
+
+function wp_rest_get_categories_links($post){
+    $post_categories = array();
+    $categories = wp_get_post_terms( $post['id'], 'category', array('fields'=>'all') );
+
+foreach ($categories as $term) {
+    $term_link = get_term_link($term);
+    if ( is_wp_error( $term_link ) ) {
+        continue;
+    }
+    $post_categories[] = array('term_id'=>$term->term_id, 'name'=>$term->name, 'link'=>$term_link);
+}
+    return $post_categories;
+
+}
+function wp_rest_get_plain_excerpt($post){
+    $excerpts = wp_trim_words(get_the_excerpt($post['id']), 90);
+    return $excerpts;
+}
+
+function wp_rest_get_normal_date($post){
+    $date = get_the_date( 'y-m-d',$post['id']);
+    return $date;
+}
+
+function get_post_meta_for_api($post){
+    $post_meta = array();
+    $post_meta['views'] = get_post_meta($post['id'],'post_views_count',true);
+    $post_meta['link'] = get_post_meta($post['id'],'link',true);
+    $post_meta['img'] = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+    $post_meta['title'] = get_the_title($post['id']);
+    return $post_meta;
+}
+
+
 ?>

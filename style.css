@@ -11,9 +11,12 @@ Version: 1.0
     line-height:1.15;
     -ms-text-size-adjust:100%;
     -webkit-text-size-adjust:100%
+    background-color: rgb(246, 247, 248) !important;
+    background: rgb(246, 247, 248) !important;
 }
 body {
-    margin:0
+    margin:0;
+    background-color: rgb(246, 247, 248) !important;
 }
 article, aside, footer, header, nav, section {
     display:block
@@ -407,9 +410,10 @@ img {
     background-color:#121111
 }
 .footer {
-    width: 620px;
+    width: 100%;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+    margin-top: -40px;
 }
 .footer p {
     font-size: 15px;
@@ -429,7 +433,7 @@ img {
 .grid-cell {
     display:inline-block;
     width:100%;
-    padding: 0 20px;
+    padding: 0 0px;
     margin:0;
     font-size:16px;
     text-align:left;
@@ -517,10 +521,11 @@ img {
     vertical-align:bottom
 }
 .grid-centered {
-    max-width:660px;
-    margin-right:auto;
-    margin-left:auto;
-    margin-top: 80px;
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    width: 100%;
 }
 @media all and (max-width: 767px) {
     .grid-cell.with-1col {
@@ -599,12 +604,21 @@ img {
 .article {
     display:block;
     margin: 80px 0;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
+    background: rgb(255, 255, 255);
+    border-radius: 6px;
+    transition: all 0.15s ease-out 0s;
+    padding: 60px 55px;
+    width: 100%;
+    overflow: hidden;
+    max-width: 100%;
 }
 .article-list {
     display: block;
-    padding: 0;
-    margin: -5px 0;
-    margin-bottom: 30px;
+    padding: 0 10px;
+    margin: 35px 0;
+    margin-bottom: 60px;
     list-style: none;
 }
 
@@ -624,11 +638,12 @@ img {
 .article-list li {
     position: relative;
     display: block;
-    padding: 30px 10px 40px 10px !important;
+    padding: 30px 10px 40px 10px;
     border-left: none;
     box-shadow: none;
     margin-top: -10px;
     border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
 }
 .article-list li:last-child {
     border-bottom:0
@@ -670,7 +685,15 @@ img {
 }
 
 .article-list-type1{
-    font-weight: 500;font-style: normal;color: #fff;background: #FFC107;padding: 4px 18px 6px 18px;font-size: 1rem;border-radius: 50px;margin-left: -1px;
+    font-weight: 500;
+    font-style: normal;
+    padding: 5.5px 16px 5.5px 16px;
+    font-size: 1rem;
+    margin-left: -1px;
+    color: rgb(0, 132, 255) !important;
+    vertical-align: top;
+    border-radius: 100px;
+    background: rgba(0, 132, 255, 0.1);
 }
 
 .article-list-type2{
@@ -701,10 +724,10 @@ img {
     display:block
 }
 .article-list-footer span, .article-list-footer a {
-    display:inline-block;
-    font-size:12px;
-    color:#ada8a8;
-    vertical-align:middle;
+    display: inline-block;
+    font-size: .96rem;
+    color: rgba(33, 35, 37, 0.65);
+    vertical-align: middle;
 }
 .article-list-footer a {
     margin-right:7.5px;
@@ -756,15 +779,19 @@ img {
     margin: 30px 0 30px 0;
     width: 100%;
     height: auto;
-    margin-left: -23px;
-    color: rgba(0,0,0,.7);
+    border-left: 3px solid rgb(238, 238, 238);
+    color: rgb(119, 119, 119);
     font-size: 16px;
     font-style: normal;
+    background: rgba(246, 247, 248, 0.64);
+    padding: 25px 20px;
 }
 
 .article-content ul, .article-content ol, .article-content p {
     display:block;
     margin-bottom:1.1em;
+    overflow: hidden;
+    overflow-x: auto;
 }
 
 article-content img{
@@ -868,8 +895,8 @@ article-content img{
 }
 .header-nav {
     display: block;
-    padding: 75px 0 0px;
-    margin-bottom: -20px;
+    padding: 75px 10px 0px 10px;
+    margin-bottom: -10px;
 }
 .header-logo {
     display:inline-block;
@@ -1196,17 +1223,12 @@ article-content img{
     margin-left: 5px !important;
 }
 
-.categories{
-    color: #fff !important;
+.index-cates{
+    color: rgb(246, 247, 248) !important;
 }
 
-.categories ul{
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 20px;
-}
-
-.categories ul li{
+.index-cates li{
+    background: #fff;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
     font-weight: 500;
     padding: 7px 15px;
@@ -1218,23 +1240,23 @@ article-content img{
     transition: all .3s;
 }
 
-.categories ul li:hover{
+.index-cates li:hover{
     transform: scale(1.04,1.04);
 }
 
-.categories ul li a{
+.index-cates li a{
     color: #333 !important;
     font-size: 1rem;
     text-decoration: none;
 }
 
-.categories ul li:nth-child(1){
+.index-cates ul li:nth-child(1){
     margin-left: 0px;
 }
 
 @media screen and (max-width:767px){
     .grid-centered{
-        margin-top: 0px;
+        margin-top: 0px !important;
     }
     .post-type-research{
         display: none;
@@ -1243,8 +1265,13 @@ article-content img{
         display: none;
     }
     .footer{
-        width: 95%;
-        margin-left: -2%;
+        width: 100%;
+        margin-top: 20px;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    .article{
+        margin:0px !important;
     }
 }
 
@@ -1255,9 +1282,10 @@ article-content img{
     margin-bottom: 10px;
     overflow: hidden;
     overflow-x: auto;
-    width: 100%;
+    width: 97%;
     white-space: nowrap;
     padding-bottom: 10px;
+    margin-left: 10px;
 }
 
 .post_tags li{
@@ -1268,7 +1296,7 @@ article-content img{
 
 .post_tags li a{
     display: inline-block;
-    background-color: rgba(230, 230, 230, 0.45);
+    background-color: rgb(236, 237, 238);
     color: #9B9B9B;
     font-size: 0.75rem;
     text-decoration: none;
@@ -1305,7 +1333,7 @@ left: 0;
 top: 0;
 opacity:.5;
 z-index: 999;
-background:#F44336;
+background:rgb(0, 132, 255);
 }
 
 .screen-reader-text{
@@ -1317,8 +1345,8 @@ background:#F44336;
 }
 
 .page-numbers{
-    border-radius: 100%;
-    background: #fafafa;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
     padding: 10px 16px;
     margin-right: 10px;
     font-weight: 600;
@@ -1328,12 +1356,12 @@ background:#F44336;
 }
 
 .next{
-    border-radius: 50px !important;
+    border-radius: 8px !important;
     padding: 10px 25px !important;
 }
 
 .prev{
-    border-radius: 50px !important;
+    border-radius: 8px !important;
     padding: 10px 25px !important;
 }
 
@@ -1354,6 +1382,10 @@ background:#F44336;
 
 .nav-links{
     margin: -20px auto 40px auto;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
 }
 
 tr{
@@ -1367,3 +1399,137 @@ td{
 table{
     width: 100%;
 }
+
+.index-cates{
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 25px 8px 20px 0px;
+}
+
+
+/* Start The Tony Version */
+
+.tony-header-fixed{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    background: transparent;
+    z-index: 99999;
+    padding: 0 35px;
+    transition: ease-in-out .2s;
+}
+
+.tony-header-scoll{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 8px;
+    display: flex;
+    background: #fff;
+    z-index: 99999;
+    padding: 0 35px;
+    transition: ease-in-out .2s;
+}
+
+.lead{
+    margin-top: 0px;
+    display: inline-block;
+    margin-bottom: 0px;
+    color: rgb(136, 136, 136);
+    margin-left: 5px;
+}
+
+.index-post-list{
+    padding: 30px 30px !important;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;
+    background: rgb(255, 255, 255);
+    border-radius: 6px;
+    transition: all 0.15s ease-out 0s;
+}
+
+.single-h2{
+    letter-spacing: 1px;
+    margin-top: 3px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+}
+
+.single-badge{
+    margin-bottom: 10px;
+    color: rgb(92, 97, 102) !important;
+    line-height: 1;
+    background: rgb(246, 247, 248) !important;
+    border-radius: 20px;
+    padding: 8px 16px !important;
+    font-size: 1rem !important;
+    font-weight: 500;
+    letter-spacing: 0px;
+}
+.single-line{
+    display: block;
+    width: 13%;
+    height: 3px;
+    border-radius: 5px;
+    background: rgb(236, 237, 238);
+    margin-top: 20px;
+}
+
+.header-div1-1 img{
+    height: 41px;
+    width: 41px;
+    border-radius: 50%;
+    margin: 0px;
+    margin-top: 10px;
+    border: 1px solid rgb(238, 238, 238);
+    padding: 1px;
+}
+
+.header-div1 img{
+    height: 41px;
+    width: 41px;
+    border-radius: 50%;
+    margin: 0px;
+    margin-top: 10px;
+    border: 1px solid rgb(238, 238, 238);
+    padding: 1px;
+}
+
+.header-div1{
+    flex-basis: 50%;
+    text-align: left;
+    display: flex;
+}
+
+.header-div1-1{
+    flex-basis: 50%;
+    text-align: left;
+}
+
+.header-div2{
+    flex-basis: 50%;
+    text-align: right;
+    padding-top: 10px;
+    letter-spacing: 10px;
+}
+
+.progress-bar{
+    transition: all .05s !important;
+}
+
+@media screen and (max-width:767px){
+    .tony-header-fixed{
+        display: none;
+    }
+    .tony-header-scoll{
+        display: none;
+    }
+}
+
+/* End of The Tony Vershion */
