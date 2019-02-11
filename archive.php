@@ -8,9 +8,9 @@ if($category[0]) $id = $category[0]->term_id; $name = $category[0]->cat_name; $d
     <nav class="header-nav reveal">
         
         <a class="top1 header-logo" style="text-decoration:none;" href="https://www.ouorz.com">XXXXX</a>
-        <p class="top2 lead" style="margin-top: 0px;display:block">XXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+        <p class="top2 lead archive-p">XXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
         
-        <div class="btn-group" style="float: right;margin-top: -80px;">
+        <div class="btn-group" style="margin-top: -77px;margin-left: 180px;">
             <button type="button" class="btn btn-primary"><a href="https://www.ouorz.com/" style="text-decoration:none;color:white"><i class="czs-hand-slide" style="margin-right:5px" ></i>回到首页</a></button>
         </div>
     </nav>
@@ -42,20 +42,19 @@ if($category[0]) $id = $category[0]->term_id; $name = $category[0]->cat_name; $d
     </li>
     <!-- 占位DIV -->
     
-    <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts"> 
+    <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts" :style="post.post_categories[0].term_id | link_style"> 
     
         <em v-if="post.post_categories[0].term_id === 7" class="article-list-type1">{{ post.post_categories[0].name }}</em>
-        <div v-if="post.post_categories[0].term_id === 2 || post.post_categories[0].term_id === 5" style="float: left;margin-right: 40px;"><img :src="post.post_metas.img[0]" style="width: 110px;height: 110px;border-radius: 8px;margin: 8px 0;"></div>
-        
-        <a v-if="post.post_categories[0].term_id === 2 || post.post_categories[0].term_id === 5" :href="post.post_metas.link" style="text-decoration: none;"><h5 style="margin-top: 10px;" v-html="post.title.rendered"></h5></a>
-        <a v-else :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
-        
-        
-        <p v-html="post.post_excerpt"></p>
+        <div v-if="post.post_categories[0].term_id === 2 || post.post_categories[0].term_id === 5" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
+        <div class="link-list-right">
+            <a v-if="post.post_categories[0].term_id === 2 || post.post_categories[0].term_id === 5" :href="post.post_metas.link" style="text-decoration: none;"><h5 style="margin-top: 10px;" v-html="post.title.rendered"></h5></a>
+            <a v-else :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
+            <p v-html="post.post_excerpt"></p>
         <div class="article-list-footer"> 
-            <span class="article-list-date" style="color: #ada8a8;">{{ post.post_date }}</span>
-            <span class="article-list-divider">-</span>
-            <span class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
+            <span class="article-list-date" style="color: #ada8a8;">{{ post.post_categories[0].term_id | link_page }}{{ post.post_date }}</span>
+            <span class="article-list-divider" v-if="post.post_categories[0].term_id !== 2 && post.post_categories[0].term_id !== 5">-</span>
+            <span class="article-list-minutes" v-if="post.post_categories[0].term_id !== 2 && post.post_categories[0].term_id !== 5">{{ post.post_metas.views }}&nbsp;Views</span>
+        </div>
         </div>
     </li>
 
@@ -156,6 +155,24 @@ window.onload = function(){ //避免爆代码
                  })
             }
                 },
+            filters: {
+                link_page : function(cate_id){
+                    if(cate_id == 2){
+                        return '添加于 ';
+                    }else if(cate_id == 5){
+                        return '创造于 ';
+                    }else{
+                        return '';
+                    }
+                },
+                link_style : function(cate_id){
+                    if(cate_id == 2 || cate_id == 5){
+                        return 'display: flex;';
+                    }else{
+                        return '';
+                    }
+                }
+            }
         });
         
         

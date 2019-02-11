@@ -232,7 +232,7 @@ function wp_rest_get_plain_excerpt($post){
 }
 
 function wp_rest_get_normal_date($post){
-    $date = get_the_date( 'y-m-d',$post['id']);
+    $date = get_the_date( 'd-m-y',$post['id']);
     return $date;
 }
 

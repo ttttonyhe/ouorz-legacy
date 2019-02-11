@@ -759,7 +759,7 @@ img {
 .article-header {
     display: block;
     padding-bottom: 35px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 .article-header p {
     display:block;
@@ -1418,7 +1418,7 @@ table{
     top: 0px;
     display: flex;
     background: transparent;
-    z-index: 99999;
+    z-index: 2;
     padding: 0 35px;
     transition: ease-in-out .2s;
 }
@@ -1431,7 +1431,7 @@ table{
     box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 8px;
     display: flex;
     background: #fff;
-    z-index: 99999;
+    z-index: 2;
     padding: 0 35px;
     transition: ease-in-out .2s;
 }
@@ -1441,7 +1441,6 @@ table{
     display: inline-block;
     margin-bottom: 0px;
     color: rgb(136, 136, 136);
-    margin-left: 5px;
 }
 
 .index-post-list{
@@ -1450,7 +1449,7 @@ table{
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;
     background: rgb(255, 255, 255);
     border-radius: 6px;
-    transition: all 0.15s ease-out 0s;
+    transition: all .2s ease-out 0s;
 }
 
 .single-h2{
@@ -1523,6 +1522,11 @@ table{
     transition: all .05s !important;
 }
 
+.uk-spinner>*>*{
+    animation: uk-spinner-dash 2s ease-in-out infinite !important;
+    stroke-width: 2 !important;
+}
+
 @media screen and (max-width:767px){
     .tony-header-fixed{
         display: none;
@@ -1530,6 +1534,81 @@ table{
     .tony-header-scoll{
         display: none;
     }
+    .link-list-img{
+        display: none;
+    }
+    .link-list-right{
+        flex-basis: 100% !important;
+    }
+    .link-list-left{
+        flex-basis: 0% !important;
+    }
+}
+
+.link-list-img{
+    width: 110px;height: 110px;border-radius: 8px;margin: 8px 0;
+}
+
+.link-list-right{
+    flex-basis: 70%;
+}
+
+.link-list-left{
+    float: left;flex-basis: 28.5%;
+}
+
+.archive-p{
+    margin-top: 0px;
+    display:block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-show-btn{
+    color: #999;
+    background: rgb(246, 247, 248);
+    border: none;
+    font-weight: 500;
+    font-style: normal;
+    padding: 3.5px 16px 4px 16px;
+    margin-top: -3px;
+    font-size: 1rem;
+    float: right;
+    vertical-align: top;
+    border-radius: 100px;
+}
+
+.list-show-div{
+    margin-bottom: 20px;
+}
+
+.preview-p{
+    margin: 30px 0 !important;
+}
+
+.uk-modal-dialog{
+    padding: 20px 30px !important;
+    top: 30px !important;
+}
+
+.preview-p blockquote{
+    font-style: normal;
+    background: rgb(247, 248, 249);
+    border: none;
+    padding: 10px 20px;
+}
+
+.preview-p blockquote p{
+    margin: 0px;
+    color: rgb(119, 119, 119);
+}
+
+.loading-text{
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 /* End of The Tony Vershion */

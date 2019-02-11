@@ -1,4 +1,4 @@
-<html>
+<html lang="zh">
     <head>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title><?php if ( is_home() ) {
@@ -14,6 +14,8 @@
 	} else {
 		wp_title('',true);
 	} ?></title>
+	    <meta http-equiv="x-dns-prefetch-control" content="on" />
+        <link rel="dns-prefetch" href="https://static.ouorz.com" />
 	    <meta name="keywords" content="<?php echo get_option('king_gjc');?>"/>
         <meta name="description" content="<?php echo get_option('king_ms');?>">
         <link rel="Shortcut Icon" href="https://static.ouorz.com/tonyhe.ico" type="image/x-icon" />
@@ -28,6 +30,16 @@
         <script type="text/javascript" src="https://static.zeo.im/uikit.min.js"></script>
         <script type="text/javascript" src="https://static.ouorz.com/vue.min.js"></script>
         <script type="text/javascript" src="https://static.ouorz.com/axios.min.js"></script>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?20265c137ab04d39313561665f1ae7a1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
     </head>
         <body id="body">
             
@@ -70,10 +82,24 @@
         var to_top_header = $(document).scrollTop();
         if (to_top_header <= 0) {
             $('#header-div').attr('class','tony-header-fixed');
+            
+            $('#header-div').hover(function(){
+            $('#header-div').attr('class','tony-header-scoll');
+            },function(){
+            $('#header-div').attr('class','tony-header-fixed');
+            })
+            
         }else{
             $('#header-div').attr('class','tony-header-scoll');
+            
+            $('#header-div').hover(function(){
+            $('#header-div').attr('class','tony-header-scoll');
+            },function(){
+            $('#header-div').attr('class','tony-header-scoll');
+            })
         }
-      }); 
+      });
+      
     </script>
             
             
