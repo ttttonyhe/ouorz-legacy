@@ -10,7 +10,7 @@
 + 全站Vue.js重构
 + 首页分类/标签
 + 文章列表无限加载
-+ 使用 Artalk 作为评论系统([](https://github.com/qwqcode/Artalk))
++ 使用 Artalk 作为评论系统(https://github.com/qwqcode/Artalk)
 
 <br/>
 
