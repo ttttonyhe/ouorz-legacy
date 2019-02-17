@@ -202,7 +202,23 @@ function wp_rest_insert_tag_links(){
             'schema'          => null,
         )
     );
+    register_rest_field( 'page',
+        'post_date',
+        array(
+            'get_callback'    => 'wp_rest_get_normal_date',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
     register_rest_field( 'post', 
+        'post_metas', 
+        array(
+            'get_callback' => 'get_post_meta_for_api',
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
+    register_rest_field( 'page', 
         'post_metas', 
         array(
             'get_callback' => 'get_post_meta_for_api',
@@ -242,6 +258,7 @@ function get_post_meta_for_api($post){
     $post_meta['link'] = get_post_meta($post['id'],'link',true);
     $post_meta['img'] = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
     $post_meta['title'] = get_the_title($post['id']);
+    $post_meta['tag_name'] = get_the_tags($post['id'])[0]->name;
     return $post_meta;
 }
 

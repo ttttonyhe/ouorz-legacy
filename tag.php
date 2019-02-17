@@ -92,7 +92,7 @@ window.onload = function(){ //避免爆代码
         /* 展现内容(避免爆代码) */
         $('.article-list').css('opacity','1');
         $('.top1').html('<?php echo $tag[0]->name; ?>');
-        $('.top2').html('文章数 : <?php echo get_tag_post_count_by_id($tag[0]->term_id); ?>');
+        $('.top2').html('标签文章数 : <?php echo get_tag_post_count_by_id($tag[0]->term_id); ?>');
         $('.cat-real').attr('style','display:inline-block');
         /* 展现内容(避免爆代码) */
         

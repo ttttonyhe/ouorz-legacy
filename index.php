@@ -28,7 +28,7 @@
     
     <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts"> 
         <div class="list-show-div">
-            <em v-if="post.post_categories[0].term_id === 7" class="article-list-type1">{{ post.post_categories[0].name }}</em>
+            <em v-if="post.post_categories[0].term_id === 7" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '技术') }}</em>
             <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id">全文速览</button>
         </div>
         <a :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
@@ -90,7 +90,7 @@ window.onload = function(){ //避免爆代码
                      this.loading_cates = false;
                      
                      //获取标签
-                     axios.get('https://www.ouorz.com/wp-json/wp/v2/tags')
+                     axios.get('https://www.ouorz.com/wp-json/wp/v2/tags?order=desc&per_page=15')
                      .then(response => {
                          this.tages = response.data;
                      }).finally(() => {
@@ -126,13 +126,16 @@ window.onload = function(){ //避免爆代码
             },
             methods: { //定义方法
                 new_page : function(){ //加载下一页文章列表
+                    $('#view-text').html('-&nbsp;加载中&nbsp;-');
                     axios.get('https://www.ouorz.com/wp-json/wp/v2/posts?per_page=10&page='+paged+'&categories_exclude=5,2')
                  .then(response => {
                      if(response.data.length !== 0){ //判断是否最后一页
+                         $('#view-text').html('-&nbsp;文章列表&nbsp;-');
                          this.posts.push.apply(this.posts,response.data); //拼接在上一页之后
                          click = 0;
                          paged++;
                      }else{
+                         $('#view-text').html('-&nbsp;全部文章&nbsp;-');
                          $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                      }
                  })
